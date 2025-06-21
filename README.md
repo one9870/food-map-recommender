@@ -1,8 +1,10 @@
-# 🍽️ 美食地圖推薦系統
+# ccClub2025春季專案計畫-食刻導航 (Gourmet Navigator)
 
-一個基於 Streamlit 和 Google Maps API 的智慧餐廳推薦系統，幫助您找到最適合的餐廳。
+**使用Streamlit和Google Maps API的智慧餐廳推薦系統，幫助您找到最適合的餐廳。**
 
-## ✨ 功能特色
+---
+
+## (一)功能特色
 
 - 🔍 **智慧搜尋**：根據地點、餐廳類型、關鍵字搜尋餐廳
 - 📍 **地圖顯示**：在 Google Maps 上標示餐廳位置
@@ -11,16 +13,14 @@
 - 🌍 **多語言支援**：支援中文和英文介面
 - 📊 **推薦算法**：結合距離、評分、類型匹配的綜合推薦
 
-## 🚀 快速開始
+## (二)環境需求
 
-### 前置需求
+- Python 3.7以上版本
+- 您個人的Google Maps API Key
 
-- Python 3.7+
-- Google Maps API 金鑰
+## (三)安裝步驟
 
-### 安裝步驟
-
-1. **克隆專案**
+1. **複製專案**
 ```bash
 git clone https://github.com/one9870/food-map-recommender.git
 cd food-map-recommender
@@ -31,7 +31,7 @@ cd food-map-recommender
 pip install streamlit requests
 ```
 
-3. **設定 API 金鑰**
+3. **設定API 金鑰**
    - 在程式碼中設定您的 Google Maps API 金鑰
    - 或設定環境變數 `GOOGLE_MAPS_API_KEY`
 
@@ -42,9 +42,9 @@ streamlit run food_fixed.py
 
 5. **開啟瀏覽器**
    - 程式會自動開啟瀏覽器
-   - 或手動前往：http://localhost:8501
+   - 或手動前往：http://localhost:8501 (預設port)
 
-## 📖 使用方式
+## (四)使用方式
 
 1. **選擇語言**：在側邊欄選擇中文或英文
 2. **輸入搜尋條件**：
@@ -54,48 +54,43 @@ streamlit run food_fixed.py
 3. **點擊搜尋**：查看餐廳列表和地圖
 4. **查看詳細資訊**：點擊地圖上的標記查看餐廳詳情
 
-## 🏗️ 專案結構
+## (五)專案結構圖
 
 ```
 food-map-recommender/
 ├── food.py              # 原始版本
-├── food_fixed.py        # 改進版本（推薦使用）
-├── README.md           # 專案說明
-└── .gitignore          # Git 忽略檔案
+├── food_fixed.py        # 修正版本
+├── README.md            # 專案說明
+└── .gitignore           # Git忽略檔案
 ```
 
-## 🔧 技術架構
+## (六)技術架構
 
-- **前端框架**：Streamlit
-- **地圖服務**：Google Maps API
-- **地理編碼**：Google Geocoding API
-- **餐廳搜尋**：Google Places API
-- **距離計算**：Haversine 公式
+- **前端框架**：使用Streamlit
+- **地圖服務**：串接Google Maps API
+- **地理編碼**：串接Google Geocoding API
+- **餐廳搜尋**：串接Google Places API
+- **距離計算**：運用Haversine 公式
 
-## 📊 推薦算法
+## (七)推薦評分計算法
 
-系統使用綜合評分算法：
-
+使用綜合評分算法：
 - **距離分數**（40分）：距離越近分數越高
-- **評分分數**（50分）：Google 評分轉換為 50 分制
+- **評分分數**（50分）：將Google評分轉換為50分制
 - **類型匹配**（10分）：符合搜尋條件的餐廳類型
 
-## ⚠️ 注意事項
+## (八)注意事項
 
-- 需要有效的 Google Maps API 金鑰
-- 需要網路連線
-- API 有使用配額限制
-- 建議在台灣地區使用
+1. 需要有效的 Google Maps API Key
+2. 需要有網路連線
+3. 注意API有使用配額限制
+4. 目前僅建議在台灣本島使用
 
-## 🤝 貢獻
-
-歡迎提交 Issue 和 Pull Request！
-
-## 📄 授權
+## (九)授權
 
 MIT License
 
-## 👨‍💻 作者
+## (十)作者
 
 one9870
 
