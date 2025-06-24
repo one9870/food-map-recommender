@@ -1,0 +1,14 @@
+{
+  "builds": [
+    {
+      "src": "food_fixed.py",
+      "use": "@vercel/python"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "food_fixed.py"
+    }
+  ]
+} 

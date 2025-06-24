@@ -284,12 +284,12 @@ with col1:
                 center_lat, center_lng = coords
                 search_center = {"lat": center_lat, "lng": center_lng}
             else:
-                # 使用預設座標（台北市中心）
-                center_lat, center_lng = 25.0478, 121.5319
+                # 使用預設座標（台北101大樓）
+                center_lat, center_lng = 25.0330, 121.5654
                 search_center = {"lat": center_lat, "lng": center_lng}
         else:
-            # 使用預設座標
-            center_lat, center_lng = 25.0478, 121.5319
+            # 使用預設座標（台北101大樓）
+            center_lat, center_lng = 25.0330, 121.5654
             search_center = {"lat": center_lat, "lng": center_lng}
         
         # 搜尋餐廳
@@ -321,10 +321,30 @@ with col2:
         map_html = create_map_html(results, search_center["lat"], search_center["lng"])
         components.html(map_html, height=520)
     else:
-        if lang == "中文":
-            st.warning("地圖將在搜尋後顯示標記")
-        else:
-            st.warning("Map will show markers after search")
+        # 顯示預設地圖（台北101大樓）
+        default_lat, default_lng = 25.0330, 121.5654
+        default_map_html = f'''
+        <div id="map" style="width:100%;height:500px;"></div>
+        <script src="https://maps.googleapis.com/maps/api/js?key={API_KEY}"></script>
+        <script>
+        var map = new google.maps.Map(document.getElementById('map'), {{
+            center: {{lat: {default_lat}, lng: {default_lng}}},
+            zoom: 15
+        }});
+        var marker = new google.maps.Marker({{
+            position: {{lat: {default_lat}, lng: {default_lng}}},
+            map: map,
+            title: "台北101大樓 / Taipei 101"
+        }});
+        var infowindow = new google.maps.InfoWindow({{
+            content: "<b>台北101大樓 / Taipei 101</b><br>預設起始點 / Default starting point"
+        }});
+        marker.addListener('click', function() {{
+            infowindow.open(map, marker);
+        }});
+        </script>
+        '''
+        components.html(default_map_html, height=520)
 
 # 頁腳資訊
 st.markdown("---")

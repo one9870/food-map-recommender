@@ -97,3 +97,102 @@ one9870
 ---
 
 ⭐ 如果這個專案對您有幫助，請給個 Star！ 
+
+# 餐廳地圖推薦系統
+
+一個使用 Google Maps API 和 Streamlit 建立的餐廳推薦應用程式。
+
+## 功能特色
+
+- 🗺️ 互動式地圖顯示
+- 🔍 多條件搜尋（地點、類型、關鍵字）
+- ⭐ 智能推薦評分系統
+- 🌐 中英文雙語介面
+- 📱 響應式設計
+
+## 本地執行
+
+```bash
+# 安裝依賴
+pip install -r requirements.txt
+
+# 啟動應用
+streamlit run food_fixed.py
+```
+
+## 部署到網路
+
+### 方法一：Streamlit Cloud（推薦）
+
+1. 將程式碼推送到 GitHub
+2. 前往 [share.streamlit.io](https://share.streamlit.io)
+3. 連接 GitHub 帳號
+4. 選擇您的 repository
+5. 設定環境變數 `GOOGLE_MAPS_API_KEY`
+6. 部署完成！
+
+### 方法二：Heroku
+
+1. 建立 `Procfile`：
+```
+web: streamlit run food_fixed.py --server.port=$PORT --server.address=0.0.0.0
+```
+
+2. 建立 `setup.sh`：
+```bash
+mkdir -p ~/.streamlit/
+echo "\
+[server]\n\
+headless = true\n\
+port = $PORT\n\
+enableCORS = false\n\
+\n\
+" > ~/.streamlit/config.toml
+```
+
+3. 在 Heroku 設定環境變數 `GOOGLE_MAPS_API_KEY`
+
+### 方法三：Railway
+
+1. 連接 GitHub repository
+2. 設定環境變數
+3. 自動部署
+
+### 方法四：Vercel
+
+1. 建立 `vercel.json`：
+```json
+{
+  "builds": [
+    {
+      "src": "food_fixed.py",
+      "use": "@vercel/python"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "food_fixed.py"
+    }
+  ]
+}
+```
+
+## 環境變數設定
+
+在部署平台上設定以下環境變數：
+
+- `GOOGLE_MAPS_API_KEY`: 您的 Google Maps API 金鑰
+
+## 注意事項
+
+- 確保 Google Maps API 金鑰有足夠的配額
+- 建議設定 API 金鑰的網域限制
+- 免費版 Streamlit Cloud 有使用限制
+
+## 技術架構
+
+- **前端**: Streamlit
+- **地圖**: Google Maps API
+- **搜尋**: Google Places API
+- **語言**: Python 3.8+ 
