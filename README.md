@@ -28,7 +28,7 @@ cd food-map-recommender
 
 2. **安裝依賴套件**
 ```bash
-pip install streamlit requests
+pip install -r requirements.txt
 ```
 
 3. **設定API 金鑰**
@@ -59,8 +59,12 @@ streamlit run food_fixed.py
 ```
 food-map-recommender/
 ├── food.py              # 原始版本
-├── food_fixed.py        # 修正版本
+├── food_fixed.py        # 修正版本（主要檔案）
+├── requirements.txt     # 依賴套件清單
 ├── README.md            # 專案說明
+├── Procfile             # Heroku 部署用
+├── setup.sh             # Heroku 設定腳本
+├── vercel.json          # Vercel 部署用
 └── .gitignore           # Git忽略檔案
 ```
 
@@ -79,48 +83,7 @@ food-map-recommender/
 - **評分分數**（50分）：將Google評分轉換為50分制
 - **類型匹配**（10分）：符合搜尋條件的餐廳類型
 
-## (八)注意事項
-
-1. 需要有效的 Google Maps API Key
-2. 需要有網路連線
-3. 注意API有使用配額限制
-4. 目前僅建議在台灣本島使用
-
-## (九)授權
-
-MIT License
-
-## (十)作者
-
-one9870
-
----
-
-⭐ 如果這個專案對您有幫助，請給個 Star！ 
-
-# 餐廳地圖推薦系統
-
-一個使用 Google Maps API 和 Streamlit 建立的餐廳推薦應用程式。
-
-## 功能特色
-
-- 🗺️ 互動式地圖顯示
-- 🔍 多條件搜尋（地點、類型、關鍵字）
-- ⭐ 智能推薦評分系統
-- 🌐 中英文雙語介面
-- 📱 響應式設計
-
-## 本地執行
-
-```bash
-# 安裝依賴
-pip install -r requirements.txt
-
-# 啟動應用
-streamlit run food_fixed.py
-```
-
-## 部署到網路
+## (八)部署到網路
 
 ### 方法一：Streamlit Cloud（推薦）
 
@@ -144,7 +107,7 @@ mkdir -p ~/.streamlit/
 echo "\
 [server]\n\
 headless = true\n\
-port = $PORT\n\
+port = \$PORT\n\
 enableCORS = false\n\
 \n\
 " > ~/.streamlit/config.toml
@@ -178,21 +141,22 @@ enableCORS = false\n\
 }
 ```
 
-## 環境變數設定
+## (九)注意事項
 
-在部署平台上設定以下環境變數：
+1. 需要有效的 Google Maps API Key
+2. 需要有網路連線
+3. 注意API有使用配額限制
+4. 目前僅建議在台灣本島使用
+5. 歡迎提交Issue和Pull Request
 
-- `GOOGLE_MAPS_API_KEY`: 您的 Google Maps API 金鑰
+## (十)授權
 
-## 注意事項
+MIT License
 
-- 確保 Google Maps API 金鑰有足夠的配額
-- 建議設定 API 金鑰的網域限制
-- 免費版 Streamlit Cloud 有使用限制
+## (十一)作者
 
-## 技術架構
+one9870
 
-- **前端**: Streamlit
-- **地圖**: Google Maps API
-- **搜尋**: Google Places API
-- **語言**: Python 3.8+ 
+---
+
+⭐ 如果這個專案對您有幫助，請給個 Star！
