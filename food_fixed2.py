@@ -6,7 +6,7 @@ from streamlit_js_eval import get_geolocation
 from math import radians, cos, sin, asin, sqrt
 
 # 必須在一開始就呼叫
-st.set_page_config(page_title="美食地圖推薦系統：食刻導航 (Gourmet Navigator)", layout="wide")
+st.set_page_config(page_title="食刻導航 (Gourmet Navigator)", layout="wide")
 
 API_KEY = "AIzaSyBgqLteg8rjtDWjn5nvq414o9bnCHODJpQ"  
 
@@ -77,7 +77,7 @@ if 'user_location' not in st.session_state:
     st.session_state.user_location = None
 
 if lang == "中文":
-    st.title("🍽️ 美食地圖推薦系統：食刻導航 (Gourmet Navigator)")
+    st.title("🍽️ 食刻導航 (Gourmet Navigator)")
 else:
     st.title("🍽️ Restaurant Map Recommender")
 
