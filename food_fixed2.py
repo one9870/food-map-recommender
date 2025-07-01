@@ -5,8 +5,8 @@ import streamlit.components.v1 as components
 from streamlit_js_eval import get_geolocation
 from math import radians, cos, sin, asin, sqrt
 
-# 必須最前面呼叫
-st.set_page_config(page_title="美食地圖推薦系統", layout="wide")
+# 必須在一開始就呼叫
+st.set_page_config(page_title="美食地圖推薦系統：食刻導航 (Gourmet Navigator)", layout="wide")
 
 API_KEY = "AIzaSyBgqLteg8rjtDWjn5nvq414o9bnCHODJpQ"  
 
@@ -68,7 +68,7 @@ if get_location_btn:
         else:
             st.sidebar.error(f"Error getting location: {str(e)}")
 
-# 將使用者位置存儲在 session state 中
+# 將使用者位置儲存在 session state 中
 if user_location:
     st.session_state.user_location = user_location
 
@@ -392,7 +392,7 @@ with col2:
             else:
                 st.warning("Map will be shown here (markers after search)")
 
-# 在底部添加推荐评分方式说明
+# 在底部添加推薦評分方式说明
 st.markdown("---")
 if lang == "中文":
     st.markdown("### 📊 推薦評分方式說明")
