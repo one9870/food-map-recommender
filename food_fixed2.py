@@ -77,7 +77,7 @@ if 'user_location' not in st.session_state:
     st.session_state.user_location = None
 
 if lang == "中文":
-    st.title("🍽️ 美食地圖推薦系統")
+    st.title("🍽️ 美食地圖推薦系統：食刻導航 (Gourmet Navigator)")
 else:
     st.title("🍽️ Restaurant Map Recommender")
 
